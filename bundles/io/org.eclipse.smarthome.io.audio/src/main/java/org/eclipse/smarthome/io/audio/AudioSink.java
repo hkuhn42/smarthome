@@ -33,15 +33,14 @@ public interface AudioSink {
      *
      * @return
      */
-    public Set<AudioFormat> getSupportedFormats();
+    public AudioFormat getFormat();
 
     /**
      * An output stream for output audio, the format is set to the given format, throws and {@link UnsupportedAudioFormatException} if the given
      * format is not supported
      *
-     * @param format the desired format (one of getSupportedFormats) or null for the default format
      * @return an OutputStream to read data from this output
      * @throws AudioException thrown among other reasons if the given format is not supported
      */
-    public OutputStream getOutputStream(AudioFormat format) throws AudioException;
+    public OutputStream getOutputStream() throws AudioException;
 }
