@@ -15,7 +15,8 @@ package org.eclipse.smarthome.io.audio;
  *
  */
 public class AudioCodec {
-    /**
+
+	/**
      * PCM Signed
      * 
      * @see <a href="http://wiki.multimedia.cx/?title=PCM#PCM_Types">PCM Types</a>
