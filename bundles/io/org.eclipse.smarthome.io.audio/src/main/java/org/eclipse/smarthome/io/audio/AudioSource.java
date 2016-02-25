@@ -32,39 +32,14 @@ public interface AudioSource {
      *
      * @return
      */
-    public Set<AudioFormat> getSupportedFormats();
+    public AudioFormat getFormat();
 
     /**
-     * Gives access to an InputStream for reading audio data, the format is the default format
+     * Gives access to an InputStream for reading audio data, the format is the given format
      *
      * @return InputStream for reading audio data
      * @throws AudioException
      */
     public InputStream getInputStream() throws AudioException;
 
-    /**
-     * An inputstream for reading audio data, the format is set to the given format
-     *
-     * @param format the desired format (one of getSupportedFormats) or null for the default format
-     * @return InputStream for reading audio data
-     * @throws AudioException
-     */
-    public InputStream getInputStream(AudioFormat format) throws AudioException;
-
-    /**
-     * Load data from this AudioSource to the given {@link AudioSink} 
-     *
-     * @param output
-     * @throws AudioException
-     */
-    public void stream(AudioSink output) throws AudioException;
-    
-    /**
-     * Returns true if this AudioSource can stream to the given {@link AudioSink}
-     * false otherwise
-     * 
-     * @param source
-     * @return true if the AudioSource can be processes
-     */
-    public boolean canStream(AudioSink source);
 }
