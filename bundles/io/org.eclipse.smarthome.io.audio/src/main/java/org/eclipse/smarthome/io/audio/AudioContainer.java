@@ -9,11 +9,11 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * The type of container an audio clips data is wrapped in
+ * a collection of constants for container formats
  *
  * @author Harald Kuhn (hkuhn42) initial api
  */
-public enum AudioContainer {
+public class AudioContainer {
 
     /**
      * NONE
@@ -21,7 +21,7 @@ public enum AudioContainer {
      *
      * eg MP3 is a non container format
      */
-    NONE
+	public static final String NONE = "NONE";
 
     /**
      * Microsofts wave container format
@@ -32,11 +32,11 @@ public enum AudioContainer {
      * 
      * the riff audio format
      */
-    ,WAVE
+	public static final String WAVE = "WAVE";
     
 
     /**
      * http://www.xiph.org/ogg/
     */ 
-    ,OGG   
+	public static final String OGG = "OGG";   
 }

@@ -9,7 +9,7 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * Thrown when a requested format is not supported by an {@link AudioSource} or {@link AudioOutput} implementation
+ * Thrown when a requested format is not supported by an {@link AudioSource} or {@link AudioSink} implementation
  * 
  * @author hkuhn
  */
