@@ -18,12 +18,14 @@ import java.util.Set;
  */
 public interface AudioSource {
 
+	public String getId();
+	
     /**
      * Returns the human readable name of the source
      *
      * @return the human readable name of the source
      */
-    public String getName();
+    public String getLabel();
 
     /**
      * A Set containing all supported audio formats
@@ -50,19 +52,19 @@ public interface AudioSource {
     public InputStream getInputStream(AudioFormat format) throws AudioException;
 
     /**
-     * Load data from this AudioSource to the given {@link AudioOutput} 
+     * Load data from this AudioSource to the given {@link AudioSink} 
      *
      * @param output
      * @throws AudioException
      */
-    public void stream(AudioOutput output) throws AudioException;
+    public void stream(AudioSink output) throws AudioException;
     
     /**
-     * Returns true if this AudioSource can stream to the given {@link AudioOutput}
+     * Returns true if this AudioSource can stream to the given {@link AudioSink}
      * false otherwise
      * 
      * @param source
      * @return true if the AudioSource can be processes
      */
-    public boolean canStream(AudioOutput source);
+    public boolean canStream(AudioSink source);
 }

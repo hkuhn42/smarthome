@@ -18,8 +18,8 @@ package org.eclipse.smarthome.io.audio;
  */
 public class AudioFormat {
 
-    private AudioCodec codec;
-    private AudioContainer container;
+    private String codec;
+    private String container;
     /**
      * bit depth (https://en.wikipedia.org/wiki/Audio_bit_depth)
      * or
@@ -32,19 +32,19 @@ public class AudioFormat {
      */
     private long frequency;
 
-    public AudioCodec getCodec() {
+    public String getCodec() {
         return codec;
     }
 
-    public void setCodec(AudioCodec codec) {
+    public void setCodec(String codec) {
         this.codec = codec;
     }
 
-    public AudioContainer getContainer() {
+    public String getContainer() {
         return container;
     }
 
-    public void setContainer(AudioContainer container) {
+    public void setContainer(String container) {
         this.container = container;
     }
 

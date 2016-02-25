@@ -9,40 +9,34 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * An enum representing an audio codec
- * 
- * currently only pcm is supported however
- * http://stackoverflow.com/questions/6045384/playing-mp3-and-wav-in-java
+ * An collection of constatns for commonly used audio codecs
  *
  * @author Harald Kuhn (hkuhn42) initial api
  *
  */
-public enum AudioCodec {
+public class AudioCodec {
 
     /**
      * PCM Signed
      * 
      * http://wiki.multimedia.cx/?title=PCM#PCM_Types
      */
-    PCM_SIGNED
+    public static final String PCM_SIGNED = "PCM_SIGNED";
 
-    ,
     /**
      * PCM Unsigned
      * 
      * http://wiki.multimedia.cx/?title=PCM#PCM_Types
      */
-    PCM_UNSIGNED
+    public static final String PCM_UNSIGNED = "PCM_UNSIGNED";
 
-    ,
     /**
      * MP3 Codec
      */
-    MP3
+    public static final String MP3 = "MP3";
 
-    ,
     /**
      * Vorbis Codec
      */
-    VORBIS
+    public static final String VORBIS = "VORBIS";
 }

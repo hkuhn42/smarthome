@@ -17,14 +17,16 @@ import java.util.Set;
  *
  * @author Harald Kuhn (hkuhn42) initial api
  */
-public interface AudioOutput {
+public interface AudioSink {
 
+	public String getId();
+	
     /**
      * Returns the human readable name of the source
      *
      * @return the human readable name of the source
      */
-    public String getName();
+    public String getLabel();
 
     /**
      * A set containing all supported audio formats this output can process
@@ -32,14 +34,6 @@ public interface AudioOutput {
      * @return
      */
     public Set<AudioFormat> getSupportedFormats();
-
-    /**
-     * An output stream for writing audio data in the default {@link AudioFormat} of this output
-     * 
-     * @return an {@link OutputStream} 
-     * @throws AudioException 
-     */
-    public OutputStream getOutputStream() throws AudioException;
 
     /**
      * An output stream for output audio, the format is set to the given format, throws and {@link UnsupportedAudioFormatException} if the given
@@ -50,20 +44,4 @@ public interface AudioOutput {
      * @throws AudioException thrown among other reasons if the given format is not supported
      */
     public OutputStream getOutputStream(AudioFormat format) throws AudioException;
-
-    /**
-     * Process audio data from the provided {@link AudioSource} throws and {@link AudioException} if matching formats are found
-     * 
-     * @param source
-     * @throws AudioException
-     */
-    public void stream(AudioSource source) throws AudioException;
-    
-    /**
-     * Returns true if the given {@link AudioSource} can be processes by this output
-     * 
-     * @param source
-     * @return true if the AudioSource can be processes
-     */
-    public boolean canStream(AudioSource source);
 }
