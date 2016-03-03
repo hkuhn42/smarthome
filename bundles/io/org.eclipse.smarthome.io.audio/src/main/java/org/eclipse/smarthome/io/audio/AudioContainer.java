@@ -14,25 +14,27 @@ package org.eclipse.smarthome.io.audio;
  * @author Harald Kuhn (hkuhn42) initial api
  */
 public class AudioContainer {
-	/**
-	 * {@link AudioCodec} encoded data without any container header or footer,
-	 * e.g. MP3 is a non-container format
-	 */
-	public static final String NONE = "NONE";
-	
-	/**
-	 * Microsofts wave container format
-	 *
-	 * @see <a href="http://bit.ly/1TUW93t">WAV Format</a>
-	 * @see <a href="http://bit.ly/1oRMKOt">Supported codecs</a>
-	 * @see <a href="http://bit.ly/1TUWSlk">RIFF container format</a>
-	 */
-	public static final String WAVE = "WAVE";
+    /**
+     * {@link AudioCodec} encoded data without any container header or footer,
+     * e.g. MP3 is a non-container format
+     *
+     */
+    public static final String NONE = "NONE";
 
-	/**
-	 * OGG container format
-	 *
-	 * @see <a href="http://bit.ly/1oRMWNE">OGG</a>
-	 */
-	public static final String OGG = "OGG";
+    /**
+     * Microsofts wave container format
+     *
+     * @see <a href="http://bit.ly/1TUW93t">WAV Format</a>
+     * @see <a href="http://bit.ly/1oRMKOt">Supported codecs</a>
+     * @see <a href="http://bit.ly/1TUWSlk">RIFF container format</a>
+     */
+    public static final String WAVE = "WAVE";
+    
+
+    /**
+     * OGG container format
+     *
+     * @see <a href="http://bit.ly/1oRMWNE">OGG</a>
+     */ 
+    public static final String OGG = "OGG";   
 }
