@@ -9,34 +9,32 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * The type of container an audio clips data is wrapped in
+ * A collection of constants for container formats
  *
  * @author Harald Kuhn (hkuhn42) initial api
  */
-public enum AudioContainer {
-
+public class AudioContainer {
     /**
-     * NONE
-     * AudioCodec encoded data without any container header or footer
+     * {@link AudioCodec} encoded data without any container header or footer,
+     * e.g. MP3 is a non-container format
      *
-     * eg MP3 is a non container format
      */
-    NONE
+    public static final String NONE = "NONE";
 
     /**
      * Microsofts wave container format
-     * http://www.zytrax.com/tech/audio/formats.html#wav-format
      *
-     * for a list of codesc supported by WAV see
-     * http://www.opennetcf.com/library/sdf/html/60ca47dc-0b9d-2be4-a738-d0080c6fe10c.htm
-     * 
-     * the riff audio format
+     * @see <a href="http://bit.ly/1TUW93t">WAV Format</a>
+     * @see <a href="http://bit.ly/1oRMKOt">Supported codecs</a>
+     * @see <a href="http://bit.ly/1TUWSlk">RIFF container format</a>
      */
-    ,WAVE
+    public static final String WAVE = "WAVE";
     
 
     /**
-     * http://www.xiph.org/ogg/
-    */ 
-    ,OGG   
+     * OGG container format
+     *
+     * @see <a href="http://bit.ly/1oRMWNE">OGG</a>
+     */ 
+    public static final String OGG = "OGG";   
 }
