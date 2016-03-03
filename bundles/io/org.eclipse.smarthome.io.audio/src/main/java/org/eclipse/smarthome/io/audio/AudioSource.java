@@ -9,7 +9,6 @@
 package org.eclipse.smarthome.io.audio;
 
 import java.io.InputStream;
-import java.util.Set;
 
 /**
  * Wrapper for a source of audio data

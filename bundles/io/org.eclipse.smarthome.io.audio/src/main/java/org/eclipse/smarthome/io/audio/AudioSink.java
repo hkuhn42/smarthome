@@ -8,7 +8,6 @@
  */
 package org.eclipse.smarthome.io.audio;
 
-import java.io.OutputStream;
 import java.util.Set;
 
 /**
