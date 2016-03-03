@@ -9,34 +9,37 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * An collection of constatns for commonly used audio codecs
+ * A collection of constants for commonly used audio codecs
  *
  * @author Harald Kuhn (hkuhn42) initial api
  *
  */
 public class AudioCodec {
-
     /**
      * PCM Signed
      * 
-     * http://wiki.multimedia.cx/?title=PCM#PCM_Types
+     * @see <a href="http://wiki.multimedia.cx/?title=PCM#PCM_Types">PCM Types</a>
      */
     public static final String PCM_SIGNED = "PCM_SIGNED";
 
     /**
      * PCM Unsigned
      * 
-     * http://wiki.multimedia.cx/?title=PCM#PCM_Types
+     * @see <a href="http://wiki.multimedia.cx/?title=PCM#PCM_Types">PCM Types</a>
      */
     public static final String PCM_UNSIGNED = "PCM_UNSIGNED";
 
     /**
      * MP3 Codec
+     *
+     * @see <a href="http://wiki.multimedia.cx/index.php?title=MP3">MP3 Codec</a>
      */
     public static final String MP3 = "MP3";
 
     /**
      * Vorbis Codec
+     *
+     * @see <a href="http://xiph.org/vorbis/doc/">Vorbis</a>
      */
     public static final String VORBIS = "VORBIS";
 }

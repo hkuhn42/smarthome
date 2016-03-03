@@ -18,29 +18,21 @@ import java.util.Set;
  * @author Harald Kuhn (hkuhn42) initial api
  */
 public interface AudioSink {
-
-	public String getId();
-	
-    /**
-     * Returns the human readable name of the source
-     *
-     * @return the human readable name of the source
-     */
-    public String getLabel();
-
-    /**
-     * A set containing all supported audio formats this output can process
-     *
-     * @return
-     */
-    public AudioFormat getFormat();
+   /**
+    * Processes the passed {@link AudioSource}
+    *
+    * If the passed {@link AudioSource} has a {@link AudioFormat} not supported by this instance,
+    * an {@link UnsupportedAudioFormatException} is thrown.
+    *
+    * @return A boolean indicating processing started
+    * @throws UnsupportedAudioFormatException If audioSource format is not supported
+    */
+    boolean process(AudioSource audioSource) throws UnsupportedAudioFormatException;
 
     /**
-     * An output stream for output audio, the format is set to the given format, throws and {@link UnsupportedAudioFormatException} if the given
-     * format is not supported
+     * Gets a set containing all supported audio formats
      *
-     * @return an OutputStream to read data from this output
-     * @throws AudioException thrown among other reasons if the given format is not supported
+     * @return A Set containing all supported audio formats
      */
-    public OutputStream getOutputStream() throws AudioException;
+    public Set<AudioFormat> getSupportedFormats();
 }

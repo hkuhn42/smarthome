@@ -17,28 +17,18 @@ import java.util.Set;
  *  @author Harald Kuhn (hkuhn42) initial api
  */
 public interface AudioSource {
-
-	public String getId();
-	
     /**
-     * Returns the human readable name of the source
+     * Gets the supported audio format
      *
-     * @return the human readable name of the source
-     */
-    public String getLabel();
-
-    /**
-     * A Set containing all supported audio formats
-     *
-     * @return
+     * @return The supported audio format
      */
     public AudioFormat getFormat();
 
     /**
-     * Gives access to an InputStream for reading audio data, the format is the given format
+     * Gets InputStream to reading audio data in supported audio format
      *
      * @return InputStream for reading audio data
-     * @throws AudioException
+     * @throws AudioException If problem occurs obtaining InputStream
      */
     public InputStream getInputStream() throws AudioException;
 
