@@ -11,57 +11,130 @@ package org.eclipse.smarthome.io.audio;
 /**
  * An audio format definition 
  *
- * TODO:
- *         i probably need to add endian flag
- * 
  * @author Harald Kuhn (hkuhn42) initial api
  */
 public class AudioFormat {
 
-    private String codec;
-    private String container;
     /**
-     * bit depth (https://en.wikipedia.org/wiki/Audio_bit_depth)
-     * or
-     * bit rate (https://en.wikipedia.org/wiki/Bit_rate)
-     * depending on codec
+     * Codec
+     */
+    private String codec;
+
+    /**
+     * Container
+     */
+    private String container;
+
+    /**
+     * Big endian or little endian
+     */
+    private boolean bigEndian;
+
+    /**
+     * Bit depth or bit rate depending on codec
+     *
+     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
+     * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
      */
     private int bits;
+
     /**
-     * sample frequence
+     * Sample frequency
      */
     private long frequency;
 
+    /**
+     * Gets codec
+     *
+     * @return The codec
+     */
     public String getCodec() {
         return codec;
     }
 
+    /**
+     * Sets codec
+     *
+     * @param codec The codec
+     */
     public void setCodec(String codec) {
         this.codec = codec;
     }
 
+    /**
+     * Gets container
+     *
+     * @return The container
+     */
     public String getContainer() {
         return container;
     }
 
+    /**
+     * Sets container
+     *
+     * @param container The container
+     */
     public void setContainer(String container) {
         this.container = container;
     }
 
+    /**
+     * Is big endian?
+     *
+     * @return If format is big endian 
+     */
+    public boolean isBigEndian() {
+        return bigEndian;
+    }
+
+    /**
+     * Sets big endian
+     *
+     * @param bigEndian Sets if is big endian
+     */
+    public void setBigEndian(boolean bigEndian) {
+        this.bigEndian = bigEndian;
+    }
+
+    /**
+     * Gets bit depth or bit rate depending on codec.
+     *
+     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
+     * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
+     * @return Bit depth or bit rate depending on codec
+     */
     public int getBits() {
         return bits;
     }
 
+    /**
+     * Sets bit depth or bit rate depending on codec.
+     *
+     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
+     * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
+     * @param bits Bit depth or bit rate depending on codec
+     */
     public void setBits(int bits) {
         this.bits = bits;
     }
 
+    /**
+     * Gets frequency
+     *
+     * @return The frequency
+     */
     public long getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(long rate) {
-        this.frequency = rate;
+    /**
+     * Sets frequency
+     *
+     * @param frequency The frequency
+     */
+    public void setFrequency(long frequency) {
+        this.frequency = frequency;
     }
 
     @Override
@@ -72,6 +145,9 @@ public class AudioFormat {
                 return false;
             }
             if (format.getContainer() != getContainer()) {
+                return false;
+            }
+            if (format.isBigEndian() != isBigEndian()) {
                 return false;
             }
             if (format.getBits() != getBits()) {

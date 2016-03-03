@@ -17,18 +17,37 @@ public class AudioException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
+   /**
+    * Constructs a new exception with null as its detail message.
+    */
     public AudioException() {
         super();
     }
 
+   /**
+    * Constructs a new exception with the specified detail message and cause.
+    *
+    * @param message Detail message
+    * @param cause The cause 
+    */
     public AudioException(String message, Throwable cause) {
         super(message, cause);
     }
 
+   /**
+    * Constructs a new exception with the specified detail message.
+    *
+    * @param message Detail message
+    */
     public AudioException(String message) {
         super(message);
     }
 
+   /**
+    * Constructs a new exception with the specified cause.
+    *
+    * @param cause The cause 
+    */
     public AudioException(Throwable cause) {
         super(cause);
     }
