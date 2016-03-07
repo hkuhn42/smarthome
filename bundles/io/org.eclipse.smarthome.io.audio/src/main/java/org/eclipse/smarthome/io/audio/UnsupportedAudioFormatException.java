@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2015-2016 Harald Kuhn
- * 
+ * Copyright (c) 2014-2015 openHAB UG (haftungsbeschraenkt) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +11,7 @@ package org.eclipse.smarthome.io.audio;
  * Thrown when a requested format is not supported by an {@link AudioSource}
  * or {@link AudioSink} implementation
  * 
- * @author Harald Kuhn (hkuhn42) initial api
+ * @author Harald Kuhn - Initial API
  */
 public class UnsupportedAudioFormatException extends AudioException {
 

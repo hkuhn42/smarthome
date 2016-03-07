@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2015-2016 Harald Kuhn
- * 
+ * Copyright (c) 2014-2015 openHAB UG (haftungsbeschraenkt) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,39 +8,75 @@
 package org.eclipse.smarthome.io.audio;
 
 /**
- * An audio format definition 
+ * An audio format definition
  *
- * @author Harald Kuhn (hkuhn42) initial api
+ * @author Harald Kuhn - Initial API
  */
 public class AudioFormat {
 
     /**
      * Codec
      */
-    private String codec;
+    private final String codec;
 
     /**
      * Container
      */
-    private String container;
+    private final String container;
 
     /**
      * Big endian or little endian
      */
-    private boolean bigEndian;
+    private final Boolean bigEndian;
 
     /**
-     * Bit depth or bit rate depending on codec
+     * Bit depth
      *
      * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
+     */
+    private final Integer bitDepth;
+
+    /**
+     * Bit rate
+     *
      * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
      */
-    private int bits;
+    private final Integer bitRate;
 
     /**
      * Sample frequency
      */
-    private long frequency;
+    private final Long frequency;
+
+   /**
+    * Constructs an instance with the specified peoperties.
+    *
+    * Note that any properties that are null indicate that
+    * the corresponding AudioFormat allows any value for
+    * the property.
+    *
+    * Concretely this implies that if, for example, one
+    * passed null for the value of frequency, this would
+    * mean the created AudioFormat allowed for any valid
+    * frequency.
+    *
+    * @param container The container for the audio
+    * @param codec The audio codec
+    * @param bigEndian If the audo data is big endian
+    * @param bitDepth The bit depth of the audo data
+    * @param bitRate The bit rate of the audio
+    * @param frequency The frequency at which the audio was sampled
+    */
+    public AudioFormat(String container, String codec, Boolean bigEndian,
+                       Integer bitDepth, Integer bitRate, Long frequency) {
+        super();
+        this.container = container;
+        this.codec = codec;
+        this.bigEndian = bigEndian;
+        this.bitDepth = bitDepth;
+        this.bitRate = bitRate;
+        this.frequency = frequency;
+    }
 
     /**
      * Gets codec
@@ -50,15 +85,6 @@ public class AudioFormat {
      */
     public String getCodec() {
         return codec;
-    }
-
-    /**
-     * Sets codec
-     *
-     * @param codec The codec
-     */
-    public void setCodec(String codec) {
-        this.codec = codec;
     }
 
     /**
@@ -71,52 +97,32 @@ public class AudioFormat {
     }
 
     /**
-     * Sets container
-     *
-     * @param container The container
-     */
-    public void setContainer(String container) {
-        this.container = container;
-    }
-
-    /**
      * Is big endian?
      *
-     * @return If format is big endian 
+     * @return If format is big endian
      */
-    public boolean isBigEndian() {
+    public Boolean isBigEndian() {
         return bigEndian;
     }
 
     /**
-     * Sets big endian
+     * Gets bit depth
      *
-     * @param bigEndian Sets if is big endian
+     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
+     * @return Bit depth
      */
-    public void setBigEndian(boolean bigEndian) {
-        this.bigEndian = bigEndian;
+    public Integer getBitDepth() {
+        return bitDepth;
     }
 
     /**
-     * Gets bit depth or bit rate depending on codec.
+     * Gets bit rate
      *
-     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
      * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
-     * @return Bit depth or bit rate depending on codec
+     * @return Bit rate
      */
-    public int getBits() {
-        return bits;
-    }
-
-    /**
-     * Sets bit depth or bit rate depending on codec.
-     *
-     * @see <a href="http://bit.ly/1OTydad">Bit Depth</a>
-     * @see <a href="http://bit.ly/1OTy5rk">Bit Rate</a>
-     * @param bits Bit depth or bit rate depending on codec
-     */
-    public void setBits(int bits) {
-        this.bits = bits;
+    public Integer getBitRate() {
+        return bitRate;
     }
 
     /**
@@ -124,17 +130,36 @@ public class AudioFormat {
      *
      * @return The frequency
      */
-    public long getFrequency() {
+    public Long getFrequency() {
         return frequency;
     }
 
-    /**
-     * Sets frequency
-     *
-     * @param frequency The frequency
-     */
-    public void setFrequency(long frequency) {
-        this.frequency = frequency;
+   /**
+    * Determines if the passed AudioFormat is compatable with this AudioFormat.
+    *
+    * This AudioFormat is compatible with the passed AudioFormat if both have
+    * the same value for all non-null members of this instance.
+    */
+    boolean isCompatible(AudioFormat audioFormat) {
+        if (getContainer() && (getContainer() != audioFormat.getContainer())) {
+            return false;
+        }
+        if (getCodec() && (getCodec() != audioFormat.getCodec())) {
+            return false;
+        }
+        if (getBigEndian() && (getBigEndian() != audioFormat.getBigEndian())) {
+            return false;
+        }
+        if (getBitDepth() && (getBitDepth() != audioFormat.getBitDepth())) {
+            return false;
+        }
+        if (getBitRate() && (getBitRate() != audioFormat.getBitRate())) {
+            return false;
+        }
+        if (getFrequency() && (getFrequency() != audioFormat.getFrequency())) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -150,7 +175,10 @@ public class AudioFormat {
             if (format.isBigEndian() != isBigEndian()) {
                 return false;
             }
-            if (format.getBits() != getBits()) {
+            if (format.getBitDepth() != getBitDepth()) {
+                return false;
+            }
+            if (format.getBitRate() != getBitRate()) {
                 return false;
             }
             if (format.getFrequency() != getFrequency()) {

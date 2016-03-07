@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2015-2016 Harald Kuhn
- * 
+ * Copyright (c) 2014-2015 openHAB UG (haftungsbeschraenkt) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,7 +13,7 @@ import java.util.Set;
  * Definition of an audio output like headphones, a speaker or for writing to
  * a file / clip. Also used by TTS service.
  *
- * @author Harald Kuhn (hkuhn42) initial api
+ * @author Harald Kuhn - Initial API
  */
 public interface AudioSink {
    /**
@@ -23,10 +22,9 @@ public interface AudioSink {
     * If the passed {@link AudioSource} has a {@link AudioFormat} not supported by this instance,
     * an {@link UnsupportedAudioFormatException} is thrown.
     *
-    * @return A boolean indicating processing started
     * @throws UnsupportedAudioFormatException If audioSource format is not supported
     */
-    boolean process(AudioSource audioSource) throws UnsupportedAudioFormatException;
+    void process(AudioSource audioSource) throws UnsupportedAudioFormatException;
 
     /**
      * Gets a set containing all supported audio formats
