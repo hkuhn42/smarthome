@@ -141,13 +141,16 @@ public class AudioFormat {
     * the same value for all non-null members of this instance.
     */
     boolean isCompatible(AudioFormat audioFormat) {
+    	if(audioFormat == null) {
+    		return false;
+    	}
         if ((null != getContainer()) && (getContainer() != audioFormat.getContainer())) {
             return false;
         }
         if ((null != getCodec()) && (getCodec() != audioFormat.getCodec())) {
             return false;
         }
-        if ((null != getBigEndian()) && (getBigEndian() != audioFormat.getBigEndian())) {
+        if ((null != isBigEndian()) && (isBigEndian() != audioFormat.isBigEndian())) {
             return false;
         }
         if ((null != getBitDepth()) && (getBitDepth() != audioFormat.getBitDepth())) {
