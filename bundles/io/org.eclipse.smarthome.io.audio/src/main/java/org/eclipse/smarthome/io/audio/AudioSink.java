@@ -14,6 +14,7 @@ import java.util.Set;
  * a file / clip. Also used by TTS service.
  *
  * @author Harald Kuhn - Initial API
+ * @author Kelly Davis - Modified to match discussion in #584
  */
 public interface AudioSink {
    /**

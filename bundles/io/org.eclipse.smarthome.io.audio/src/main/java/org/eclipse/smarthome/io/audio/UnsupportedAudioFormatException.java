@@ -12,6 +12,7 @@ package org.eclipse.smarthome.io.audio;
  * or {@link AudioSink} implementation
  * 
  * @author Harald Kuhn - Initial API
+ * @author Kelly Davis - Modified to match discussion in #584
  */
 public class UnsupportedAudioFormatException extends AudioException {
 

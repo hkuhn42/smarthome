@@ -11,6 +11,7 @@ package org.eclipse.smarthome.io.audio;
  * An audio format definition
  *
  * @author Harald Kuhn - Initial API
+ * @author Kelly Davis - Modified to match discussion in #584
  */
 public class AudioFormat {
 

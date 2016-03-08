@@ -13,6 +13,7 @@ import java.io.InputStream;
  * Wrapper for a source of audio data
  *
  *  @author Harald Kuhn - Initial API
+ *  @author Kelly Davis - Modified to match discussion in #584
  */
 public interface AudioSource {
     /**

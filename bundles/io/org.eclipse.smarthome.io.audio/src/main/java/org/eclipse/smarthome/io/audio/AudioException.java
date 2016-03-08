@@ -11,6 +11,7 @@ package org.eclipse.smarthome.io.audio;
  * General purpose audio exception
  *
  * @author Harald Kuhn - Initial API
+ * @author Kelly Davis - Modified to match discussion in #584
  */
 public class AudioException extends Exception {
 
